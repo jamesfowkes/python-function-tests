@@ -2,18 +2,19 @@ import unittest
 
 ###################################
 #### Write your function below! ####
-def get_dictionary_count(string):
-    if string == "":
+def get_dictionary_count(input):
+    if input == "":
         return {}
     else:
-        keys = string.split()
+        summat = input.lower()
+        keys = summat.split()
         count = len(keys)
         
         dictionary = {}
 
         for i in keys:
             if not i in dictionary:
-				dictionary[i] = 1
+                dictionary[i] = 1
             else:
                 dictionary[i] = dictionary[i] + 1
         
@@ -36,13 +37,13 @@ class FunctionTest(unittest.TestCase):
         actual = get_dictionary_count("word1 word2 word1 word2")
         
         self.assertEqual(expected, actual)
-		
+        
     def test_get_dictionary_count_returns_dictionary_of_many_single_words(self):
         expected = {'word1': 1, 'word2':1}
         actual = get_dictionary_count("word1 word2")
         
         self.assertEqual(expected, actual) 
-		
+        
     def test_get_dictionary_count_counts_same_word_twice(self):
         expected = {'word':4}
         actual = get_dictionary_count("word word word word")
@@ -54,7 +55,7 @@ class FunctionTest(unittest.TestCase):
         actual = get_dictionary_count("")
 
         self.assertEqual(expected, actual)
-	
+    
     def test_get_dictionary_count_returns_dictionary_with_single_word_as_key(self):
         expected = {'word':1}
         actual = get_dictionary_count("word")
@@ -65,7 +66,7 @@ class FunctionTest(unittest.TestCase):
         actual = get_dictionary_count("anotherword")
 
         self.assertEqual(expected, actual)
-		
+        
     #def test_produce_dictionary_of_words_in_a_string(self):
     #    expected = {
     #        'sentences': 3,
