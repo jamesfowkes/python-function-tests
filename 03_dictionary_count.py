@@ -2,6 +2,7 @@ import unittest
 
 ###################################
 #### Write your function below! ####
+
 def get_dictionary_count(input):
     if input == "":
         return {}
@@ -25,6 +26,12 @@ def get_dictionary_count(input):
 
 
 class FunctionTest(unittest.TestCase):
+
+    def test_get_dictionary_count_is_case_sensitive_with_option(self):
+        expected = {"word" : 1, "Word" : 1}
+        actual = get_dictionary_count("word Word", ignore_case=False)
+        
+        self.assertEqual(expected, actual)
 
     def test_get_dictionary_count_is_not_case_sensitive(self):
         expected = {"word" : 2}
