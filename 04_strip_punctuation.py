@@ -4,11 +4,11 @@ import unittest
 #### Write your function below! ####
 import string
 def strip_punctuation(string_in):
-	string_out = ""
-	for i in string_in:
-		if i not in string.punctuation:
-			string_out = string_out + i
-	return string_out
+    string_out = ""
+    for i in string_in:
+        if i not in string.punctuation:
+            string_out = string_out + i
+    return string_out
 ###################################
 ###################################
 
@@ -67,5 +67,10 @@ class FunctionTest(unittest.TestCase):
 
         self.assertEqual(expected, actual)
 
+    def test_strip_punctuation_leaves_midword_punctation_intact(self):
+        expected = "didn't"
+        actual = strip_punctuation("didn't")
+        self.assertEqual(expected, actual)
+
 if __name__ == "__main__":
-	unittest.main()
+    unittest.main()
