@@ -3,14 +3,14 @@ import unittest
 ###################################
 #### Write your function below! ####
 
-def get_dictionary_count(input):
+def get_dictionary_count(input, ignore_case=True):
     if input == "":
         return {}
     else:
-        summat = input.lower()
-        keys = summat.split()
-        count = len(keys)
-        
+        if ignore_case == True:
+            input = input.lower()
+        keys = input.split()
+                
         dictionary = {}
 
         for i in keys:
